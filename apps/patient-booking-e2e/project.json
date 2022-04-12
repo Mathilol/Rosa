@@ -1,0 +1,28 @@
+{
+  "root": "apps/patient-booking-e2e",
+  "sourceRoot": "apps/patient-booking-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/patient-booking-e2e/cypress.json",
+        "devServerTarget": "patient-booking:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "patient-booking:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/patient-booking-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["patient-booking"]
+}

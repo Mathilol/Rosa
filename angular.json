@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "patient-booking": "apps/patient-booking",
+    "patient-booking-e2e": "apps/patient-booking-e2e"
+  }
+}

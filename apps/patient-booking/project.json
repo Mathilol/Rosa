@@ -1,0 +1,93 @@
+{
+  "projectType": "application",
+  "root": "apps/patient-booking",
+  "sourceRoot": "apps/patient-booking/src",
+  "prefix": "rosa",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/patient-booking",
+        "index": "apps/patient-booking/src/index.html",
+        "main": "apps/patient-booking/src/main.ts",
+        "polyfills": "apps/patient-booking/src/polyfills.ts",
+        "tsConfig": "apps/patient-booking/tsconfig.app.json",
+        "assets": [
+          "apps/patient-booking/src/favicon.ico",
+          "apps/patient-booking/src/assets"
+        ],
+        "styles": ["apps/patient-booking/src/styles.css"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/patient-booking/src/environments/environment.ts",
+              "with": "apps/patient-booking/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "patient-booking:build:production"
+        },
+        "development": {
+          "browserTarget": "patient-booking:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "patient-booking:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/patient-booking/src/**/*.ts",
+          "apps/patient-booking/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/patient-booking"],
+      "options": {
+        "jestConfig": "apps/patient-booking/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
