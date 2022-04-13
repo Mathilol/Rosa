@@ -1,0 +1,27 @@
+
+<table #appointmentCalendarTable (window:resize)="calculateNumberOfDates()" style="width: 100%">
+  <div class="grey-border-top">
+    <thead>
+    <tr class="table-head">
+      <th><button [disabled]="dateIndex === 0" mat-button (click)="updateShownDates(dateIndex - this.numberOfShownDates)"><mat-icon>chevron_left</mat-icon></button></th>
+      <th  *ngFor="let dateAndAvailibilities of shownDates">
+        <div>{{dateAndAvailibilities.date.toLocaleDateString('default', { weekday: 'short' })}}</div>
+        <div>{{getMonth(dateAndAvailibilities.date) + ". " + dateAndAvailibilities.date.getDate()}}</div>
+      </th>
+      <th><button [disabled]="dateIndex > 15" mat-button (click)="updateShownDates(dateIndex + this.numberOfShownDates)"><mat-icon>chevron_right</mat-icon></button></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let rowIndex of shownRowsIndexes">
+      <td></td>
+      <td *ngFor="let columnIndex of shownColumnsIndexes">
+        <div *ngIf="shownDates[columnIndex].availabilities[rowIndex]" (click)="setSelectedDateEmitter(shownDates[columnIndex].availabilities[rowIndex])" [ngClass]="selectedDate === shownDates[columnIndex].availabilities[rowIndex] ? 'selected-cell' : 'availability-cell'"  class="display-center">{{shownDates[columnIndex].availabilities[rowIndex]?.toTimeString()?.substring(0,5)}}</div>
+        <div *ngIf="!shownDates[columnIndex].availabilities[rowIndex]" class="display-center"><span class="no-availability"></span></div>
+      </td>
+      <td></td>
+    </tr>
+    </tbody>
+  </div>
+</table>
+<div *ngIf="this.motiveId !== '' && maxAmountOfShownRows > shownRowsIndexes.length" class="show-more-appointments" (click)="showAllAppointments()">Show all availabilities</div>
+

@@ -1,0 +1,107 @@
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.booking-component {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 650px;
+  padding: 3rem 1rem;
+  color: rgba(55, 65, 81, 1);
+  width: 100%;
+  height: auto;
+}
+
+.shadow {
+  box-shadow: 0 0 #0000, 0 0 #0000, 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+  0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+.rounded {
+  border-radius: 1.5rem;
+}
+
+.form-row {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+}
+
+.radio-group {
+  display: flex;
+  align-content: space-between;
+  width: 100%;
+}
+
+.radio-button {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid black;
+  padding: 1em;
+}
+
+.reason-menu {
+  width: 100%;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: rgb(102, 102, 102);
+  height: 35px;
+}
+
+.reason-menu:hover {
+  border-color: rgba(0, 0, 0, 0.3)
+}
+
+
+.pull-right {
+  position : absolute;
+  right    : 10px;
+  top: 5px;
+}
+
+label {
+  font-size: 16px;
+}
+
+button {
+  font-size: 16px;
+}
+
+.book-appointment-div {
+  padding: 16px 32px;
+}
+
+.book-appointment-button {
+  width: 100%;
+  background-color: rgb(129, 74, 88);
+  color: white;
+  align-items: center;
+  font-size: 20px;
+  display: inline-flex;
+  justify-content: center;
+  cursor: pointer;
+  height: 40px;
+  border-radius: 0.3em;
+}
+
+h1 {
+  color: rgb(129, 74, 88);
+}
+
+button:disabled,
+button[disabled]{
+  color: rgba(0,0,0, 0.3);
+  background-color: rgba(129, 74, 88, 0.3);
+  cursor: not-allowed;
+}
+
+:host ::ng-deep .tooltip {
+  font-size: 16px !important;
+  color: black;
+}

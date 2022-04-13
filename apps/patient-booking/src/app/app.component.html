@@ -1,1 +1,32 @@
-<rosa-nx-welcome></rosa-nx-welcome>
+<div class="wrapper">
+  <div class="booking-component shadow rounded">
+    <h1>Find availability</h1>
+    <div class="form-row">
+      <label id="first-visit-label">Is this your first appointment with the practitioner?</label>
+      <mat-radio-group class="radio-group" (change)="setFirstVisit($event.value)" aria-labelledby="first-visit-label">
+        <mat-radio-button color="primary" class="radio-button" value=true>Yes</mat-radio-button>
+        <mat-radio-button color="primary" class="radio-button" value=false>No</mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <div class="form-row" *ngIf="showReason">
+      <label id="reason-for-visit-label">What is the reason for your visit</label>
+      <button mat-button class="reason-menu" [matMenuTriggerFor]="menu">
+        <span>{{reason}}</span><mat-icon class="pull-right">expand_more</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="loadCulturalFitAvailabilities()">Cultural fit</button>
+        <button mat-menu-item (click)="loadIntroductionCallAvailabilities()">Introduction Call</button>
+        <button mat-menu-item (click)="loadTechnicalAssessmentAvailabilities()">Technical assessment</button>
+      </mat-menu>
+    </div>
+    <div class="form-row">
+      <rosa-appointment-calendar
+        [motiveId]="motiveID"
+        (setSelectedDate)="setSelectedDate($event.selectedDate)"
+      ></rosa-appointment-calendar>
+    </div>
+    <div matTooltip="Choose an appointment" matTooltipPosition="above" matTooltipClass="tooltip" [matTooltipDisabled]="!!selectedDate" class="book-appointment-div">
+      <button [disabled]="!selectedDate" class="book-appointment-button">Book appointment<mat-icon>arrow_forward</mat-icon></button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,66 @@
+
+
+.grey-border-top {
+  border-top:  1px solid  rgb(128, 128, 128);
+  margin-top: 30px;
+}
+
+th {
+  width: 65px;
+  font-size: 12px;
+  padding: 0;
+  border-bottom: 1px solid  rgb(128, 128, 128);
+}
+
+.availability-cell {
+  border: 1px solid transparent;
+  border-radius: 0.3em;
+  margin: 4px;
+  background-color: #f3effb;
+  cursor: pointer;
+  height: 32px;
+}
+
+.display-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.availability-cell:hover {
+  border: 1px solid rgb(100, 61, 174);
+}
+td {
+  height: 40px;
+
+}
+
+table {
+  border-spacing: 0;
+}
+
+.no-availability {
+  width: 16px;
+  height: 1px;
+  background-color: rgb(189, 150, 158);
+}
+
+.selected-cell {
+  border-radius: 0.3em;
+  height: 32px;
+  cursor: pointer;
+  margin: 4px;
+  border: 1px solid rgb(100, 61, 174);
+  background-color: rgb(100, 61, 174);
+  color: white;
+}
+
+.show-more-appointments {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgb(128, 128, 128);
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  color: rgb(100, 61, 174);
+}
